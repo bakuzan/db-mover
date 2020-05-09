@@ -1,7 +1,7 @@
 {
-  "name": "file-mover",
+  "name": "file-copier",
   "version": "1.0.0",
-  "description": "Simple tool to move files around",
+  "description": "Simple tool to copy files around",
   "main": "src/index.ts",
   "repository": {
     "type": "git",
