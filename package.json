@@ -1,20 +1,19 @@
 {
-  "name": "db-mover",
+  "name": "file-mover",
   "version": "1.0.0",
-  "description": "Simple tool to move db files for back up",
+  "description": "Simple tool to move files around",
   "main": "src/index.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bakuzan/db-mover"
+    "url": "https://github.com/bakuzan/file-mover"
   },
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
-    "pretty": "prettier --write \"{,!(node_modules|dist|build|coverage)/**/}*.{js,jsx,ts,tsx,json}\"",
-    "tslint": "tslint --project tsconfig.json --fix"
+    "lint": "npx eslint --fix"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run tslint && npm run pretty"
+      "pre-commit": "npm run lint"
     }
   },
   "author": "bakuzan",
