@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
-    "lint": "npx eslint --fix"
+    "lint": "eslint --fix"
   },
   "husky": {
     "hooks": {
@@ -19,16 +19,18 @@
   "author": "bakuzan",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^13.13.5",
     "dotenv": "^8.2.0",
-    "husky": "^4.2.5",
-    "medea": "file:../medea",
-    "prettier": "^2.0.5",
     "ts-node": "^8.10.1",
     "tsconfig-paths": "^3.9.0",
-    "tslint": "^6.1.2",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.3.0",
     "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5"
   }
 }

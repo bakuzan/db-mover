@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 import path from 'path';
 
+import { FileInfo } from './interface/FileInfo';
 import find from './find';
 import copy from './copy';
-import { FileInfo } from './interface/FileInfo';
 import processSettings from './processSettings';
 
 dotenv.config();
