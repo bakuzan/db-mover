@@ -15,7 +15,7 @@ async function copyFilesAround(
 ) {
   let count = 0;
 
-  console.log(`\r\nMoving files matching: ${pattern}`);
+  console.log(`\r\nCopying files matching: ${pattern}`);
   console.log(`From: ${fromFolder}`);
   console.log(`To: ${toFolder}`);
 
@@ -38,13 +38,15 @@ async function init() {
   const { pattern, mappings } = processSettings();
   let count = 0;
 
-  console.log('File mover starting');
+  console.log('File Copier starting');
 
   for (const item of mappings) {
     count += await copyFilesAround(pattern, item.from, item.to);
   }
 
-  console.log(`\r\n${count} files moved.`);
+  return count;
 }
 
-init();
+init()
+  .then((count) => console.log(`\r\n${count} files copied.`))
+  .catch(() => process.exit(1));

@@ -5,17 +5,18 @@ module.exports = {
     node: true
   },
   extends: [
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:eslint-config-prettier',
-    'plugin:eslint-config-prettier/@typescript-eslint'
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
     sourceType: 'module'
   },
-  plugins: ['@typescript-eslint', '@typescript-eslint/tslint'],
+  plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/array-type': [
@@ -50,7 +51,35 @@ module.exports = {
         }
       }
     ],
-    '@typescript-eslint/class-name-casing': 'error',
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'default',
+        format: ['camelCase']
+      },
+
+      {
+        selector: 'variable',
+        format: ['camelCase', 'UPPER_CASE']
+      },
+      {
+        selector: 'parameter',
+        format: ['camelCase'],
+        leadingUnderscore: 'allow'
+      },
+
+      {
+        selector: 'memberLike',
+        modifiers: ['private'],
+        format: ['camelCase'],
+        leadingUnderscore: 'require'
+      },
+
+      {
+        selector: 'typeLike',
+        format: ['PascalCase']
+      }
+    ],
     '@typescript-eslint/consistent-type-assertions': 'error',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
@@ -91,6 +120,7 @@ module.exports = {
     ],
     '@typescript-eslint/type-annotation-spacing': 'off',
     '@typescript-eslint/unified-signatures': 'error',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'arrow-parens': ['off', 'always'],
     'brace-style': ['off', 'off'],
     camelcase: 'error',
@@ -114,9 +144,6 @@ module.exports = {
       'undefined'
     ],
     'id-match': 'error',
-    'jsdoc/check-alignment': 'error',
-    'jsdoc/check-indentation': 'error',
-    'jsdoc/newline-after-description': 'error',
     'linebreak-style': 'off',
     'max-classes-per-file': ['error', 1],
     'max-len': 'off',
@@ -165,15 +192,6 @@ module.exports = {
       }
     ],
     'use-isnan': 'error',
-    'valid-typeof': 'off',
-    '@typescript-eslint/tslint/config': [
-      'error',
-      {
-        rules: {
-          prettier: true,
-          whitespace: [true, 'check-module']
-        }
-      }
-    ]
+    'valid-typeof': 'off'
   }
 };

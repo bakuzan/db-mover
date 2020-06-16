@@ -5,15 +5,6 @@ import { promisify } from 'util';
 import { FileInfo } from './interface/FileInfo';
 
 const readdir = promisify(fs.readdir);
-const excludes = [
-  'node_modules',
-  'build',
-  'lib',
-  'src',
-  'tests',
-  '__tests__',
-  'tools'
-];
 
 async function readFiles(
   directory: string,
